@@ -4,12 +4,10 @@ const userSchema = mongoose.Schema({
     name: {
         type: String,
         default: 'Your Name',
-        required: true,
     },
     superHeroName: {
         type: String,
         default: 'Superhero Name!',
-        required: true,
     },
     password: {
         type: String,
@@ -22,17 +20,14 @@ const situationSchema = mongoose.Schema({
     title: {
         type: String,
         default: `'Sitch Title`,
-        required: true,
     },
     description: {
         type: String,
         default: `'Sitch Description`,
-        required: true,
     },
     response: {
         type: Array,
         default: `'Sitch Response`,
-        required: true
     },
     comment: String
 })
@@ -40,7 +35,6 @@ const situationSchema = mongoose.Schema({
 const settingSchema = mongoose.Schema({
     location: {
         type: String,
-        required: true,
     },
     situations: [situationSchema]
 })
