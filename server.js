@@ -2,6 +2,8 @@ require("dotenv").config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const UserController = require('./routes/UserController')
+const SettingController = require('./routes/SettingController')
 const app = express();
 
 
@@ -20,6 +22,9 @@ console.log('Mongoose default connection error: ' + err);
 
 app.use(express.static(__dirname + '/client/build/'));
 app.use(bodyParser.json());
+
+app.use('/api/users', UserController)
+app.use('/api/settings', SettingController)
 
 app.get('/', (req,res) => {
 res.sendFile(__dirname + '/client/build/index.html')
