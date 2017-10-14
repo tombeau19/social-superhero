@@ -15,7 +15,6 @@ const userSchema = mongoose.Schema({
         type: String,
         default: 'password',
     },
-    age: Number,
     Score: Number
 })
 
@@ -31,7 +30,7 @@ const situationSchema = mongoose.Schema({
         required: true,
     },
     response: {
-        type: String,
+        type: Array,
         default: `'Sitch Response`,
         required: true
     },
