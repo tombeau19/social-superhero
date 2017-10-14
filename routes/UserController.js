@@ -1,5 +1,5 @@
 const express = require('express')
-const { User, Setting } = require('../db/schema')
+const { User } = require('../db/schema')
 const router = express.Router()
 
 //INDEX
@@ -26,7 +26,18 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
     try {
         const newUser = new User(req.body.user)
-        newUser.settings.push({location: "Home", situations: []}, {location: "School", situations: []}, {location: "Community", situations: []})
+        newUser.settings.push({
+            location: "Home", 
+            situations: []
+        }, 
+        {
+            location: "School", 
+            situations: []
+        }, 
+        {
+            location: "Community", 
+            situations: []
+        })
         const saved = await newUser.save()
         res.json(saved)
     } catch (err) {

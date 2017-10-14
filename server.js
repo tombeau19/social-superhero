@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const UserController = require('./routes/UserController')
+const SituationController = require('./routes/SettingController')
 const app = express();
 
 
@@ -23,6 +24,9 @@ app.use(express.static(__dirname + '/client/build/'));
 app.use(bodyParser.json());
 
 app.use('/api/users', UserController)
+app.use('/api/users/:userId/setting', SettingController)
+app.use('/api/users/:userId/setting/:settingId/situations', SituationController)
+
 
 app.get('/', (req,res) => {
 res.sendFile(__dirname + '/client/build/index.html')
