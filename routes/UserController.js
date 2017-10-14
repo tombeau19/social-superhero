@@ -1,5 +1,5 @@
 const express = require('express')
-const { User } = require('../db/schema')
+const { User, Setting } = require('../db/schema')
 const router = express.Router()
 
 //INDEX
@@ -34,9 +34,10 @@ router.post('/', async (req, res) => {
 })
 
 //DELETE
-router.get('/:id/delete', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
-        const id = User.findById(req.params.id).remove()
+        const user = await User.findById(req.params.id).remove()
+        const users = await User.find({})
         res.json(users)
     } catch (err) {
         res.send(err)

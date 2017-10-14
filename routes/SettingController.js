@@ -1,5 +1,5 @@
 const express = require('express')
-const { Setting } = require('../db/schema')
+const { User, Setting } = require('../db/schema')
 const router = express.Router()
 
 
