@@ -1,21 +1,5 @@
 const mongoose = require('mongoose')
 
-const userSchema = mongoose.Schema({
-    name: {
-        type: String,
-        default: 'Your Name',
-    },
-    superHeroName: {
-        type: String,
-        default: 'Superhero Name!',
-    },
-    password: {
-        type: String,
-        default: 'password',
-    },
-    Score: Number
-})
-
 const situationSchema = mongoose.Schema({
     title: {
         type: String,
@@ -37,6 +21,23 @@ const settingSchema = mongoose.Schema({
         type: String,
     },
     situations: [situationSchema]
+})
+
+const userSchema = mongoose.Schema({
+    name: {
+        type: String,
+        default: 'Your Name',
+    },
+    superHeroName: {
+        type: String,
+        default: 'Superhero Name!',
+    },
+    password: {
+        type: String,
+        default: 'password',
+    },
+    settings: [settingSchema],
+    Score: Number
 })
 
 const User = mongoose.model('User', userSchema)

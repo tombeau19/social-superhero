@@ -75,17 +75,17 @@ const lostInAStore = new Situation({
 
 const school = new Setting({
     location: 'School',
-    situations: [loseAGame, playAGameYouDontWantToPlay, dontKnowWhereToSit, {}]
+    situations: [loseAGame, playAGameYouDontWantToPlay, dontKnowWhereToSit]
 })
 
 const home = new Setting({
     location: 'Home',
-    situations: [siblingWatchingShowYouDontLike, guestStayingAtHouse, friendOverHouse, {}]
+    situations: [siblingWatchingShowYouDontLike, guestStayingAtHouse, friendOverHouse]
 })
 
 const community = new Setting({
     location: 'Community',
-    situations: [eatingAtRestaurant, goingToAirport, lostInAStore, {}]
+    situations: [eatingAtRestaurant, goingToAirport, lostInAStore]
 })
 
 //USER USER USER USER USER USER USER
@@ -93,6 +93,7 @@ const tim = new User({
     name: `Tim`,
     superHeroName: `TimmyTerrific`,
     password: `batman`,
+    settings: [school, home, community],
     Score: 0
 })
 
@@ -100,6 +101,7 @@ const sarah = new User({
     name: `Sarah`,
     superHeroName: `SuperSarah`,
     password: `wonderwoman`,
+    settings: [school, home, community],
     Score: 0
 })
 
@@ -107,28 +109,11 @@ const billy = new User({
     name: `Billy`,
     superHeroName: `BillyBoom`,
     password: `batman`,
+    settings: [school, home, community],
     Score: 0
 })
 
 // Use promise to make sure it is removed and then save setting, user, etc.
-Setting.remove({})
-    .then(() => school.save())
-    .then(() => console.log(`${school.location} saved`))
-    .then(() => mongoose.connection.close())
-    .catch((err) => console.log(err))
-
-Setting.remove({})
-    .then(() => home.save())
-    .then(() => console.log(`${home.location} saved`))
-    .then(() => mongoose.connection.close())
-    .catch((err) => console.log(err))
-
-Setting.remove({})
-    .then(() => community.save())
-    .then(() => console.log(`${community.location} saved`))
-    .then(() => mongoose.connection.close())
-    .catch((err) => console.log(err))
-
 User.remove({})
     .then(() => tim.save())
     .then(() => console.log(`${tim.superHeroName} saved`))

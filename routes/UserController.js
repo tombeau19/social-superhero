@@ -2,6 +2,7 @@ const express = require('express')
 const { User } = require('../db/schema')
 const router = express.Router()
 
+
 router.get('/', async (req, res) => {
     try {
         const users = await User.find({})

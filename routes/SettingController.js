@@ -2,10 +2,11 @@ const express = require('express')
 const { Setting } = require('../db/schema')
 const router = express.Router()
 
+
 router.get('/', async (req, res) => {
     try {
-        const settings = await Setting.find({})
-        res.json(settings)
+        const users = await User.find({})
+        res.json(users)
     } catch (err) {
         res.send(err)
     }
