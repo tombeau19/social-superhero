@@ -113,31 +113,31 @@ const billy = new User({
 // Use promise to make sure it is removed and then save setting, user, etc.
 Setting.remove({})
     .then(() => school.save())
-    .then(() => console.log(`${Setting.location} saved`))
+    .then(() => console.log(`${school.location} saved`))
     .then(() => mongoose.connection.close())
 
 Setting.remove({})
     .then(() => home.save())
-    .then(() => console.log(`${Setting.location} saved`))
+    .then(() => console.log(`${home.location} saved`))
     .then(() => mongoose.connection.close())
 
 Setting.remove({})
     .then(() => community.save())
-    .then(() => console.log(`${Setting.location} saved`))
+    .then(() => console.log(`${community.location} saved`))
     .then(() => mongoose.connection.close())
 
 User.remove({})
     .then(() => tim.save())
-    .then(() => console.log(`${User.name} saved`))
+    .then(() => console.log(`${tim.superHeroName} saved`))
     .then(() => mongoose.connection.close())
 
 User.remove({})
     .then(() => sarah.save())
-    .then(() => console.log(`${User.name} saved`))
+    .then(() => console.log(`${sarah.superHeroName} saved`))
     .then(() => mongoose.connection.close())
 
 User.remove({})
     .then(() => billy.save())
-    .then(() => console.log(`${User.name} saved`))
+    .then(() => console.log(`${billy.superHeroName} saved`))
     .then(() => mongoose.connection.close())
 
