@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import NavBar from './components/NavBar'
-import HomePage from './components/HomePage'
+import HomePage from './components/Home/HomePage'
 import ScoreBoard from './components/Users/ScoreBoard'
 import UserPage from './components/Users/UserPage'
 
