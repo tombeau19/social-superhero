@@ -13,9 +13,9 @@ router.get('/', async (req, res) => {
 })
 
 //SHOW
-router.get('/:id', async (req, res) => {
+router.get('/:userId', async (req, res) => {
     try {
-        const user = await User.findById(req.params.id)
+        const user = await User.findById(req.params.userId)
         res.json(user)
     } catch (err) {
         res.send(err)
@@ -46,9 +46,9 @@ router.post('/', async (req, res) => {
 })
 
 //DELETE
-router.delete('/:id', async (req, res) => {
+router.delete('/:userId', async (req, res) => {
     try {
-        const user = await User.findById(req.params.id).remove()
+        const user = await User.findById(req.params.userId).remove()
         const users = await User.find({})
         res.json(users)
     } catch (err) {
