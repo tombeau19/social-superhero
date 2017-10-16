@@ -37,7 +37,10 @@ const userSchema = mongoose.Schema({
         default: 'password',
     },
     settings: [settingSchema],
-    Score: Number
+    score: {
+        type: Number,
+        default: 0
+    }
 })
 
 const User = mongoose.model('User', userSchema)

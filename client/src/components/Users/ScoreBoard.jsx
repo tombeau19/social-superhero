@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 class ScoreBoard extends Component {
 
@@ -27,9 +28,8 @@ class ScoreBoard extends Component {
                 <h3>Scoreboard</h3>
 
                 {this.state.users.map((user) => {
-                    return (<div>{user.superHeroName}: {user.score} points</div>)
+                return (<div><Link key={user._id} to={`/users/${user._id}`}>{user.superHeroName} ({user.name})</Link>: {user.score} points</div>)
                 })}
-
             </div>
         );
     }

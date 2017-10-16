@@ -45,6 +45,20 @@ router.post('/', async (req, res) => {
     }
 })
 
+//UPDATE
+router.patch('/:userId', async (req, res) => {
+    try {
+        const updatedUser = req.body.user
+        const user = await User.findById(req.params.userId)
+        user.score = updatedUser.score
+        user.superHeroName = updatedUser.superHeroName
+        const saved = await user.save()
+        res.json(saved)
+    } catch (err) {
+        res.send(err)
+    }
+})
+
 //DELETE
 router.delete('/:userId', async (req, res) => {
     try {
