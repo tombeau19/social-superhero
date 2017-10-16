@@ -26,7 +26,7 @@ class UserPage extends Component {
                 <h1>{this.state.user.superHeroName}</h1>
                 <div>Where Are You?</div>
                 {this.state.user.settings.map((setting) => {
-                    return (<div>{setting.location}</div>)
+                    return (<div><Link key={setting._id} to={`/users/${this.state.user._id}/settings/${setting._id}`}>{setting.location}</Link></div>)
                 })}
             </div>
         )
