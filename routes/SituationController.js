@@ -26,7 +26,7 @@ router.get('/:situationId', async (req, res) => {
     }
 })
 
-// NEW - Empty Situation
+// NEW - Default Values take place
 router.post('/', async (req, res) => {
     try {
         const newSituation = new Situation()
@@ -70,7 +70,5 @@ router.delete('/:situationId', async (req, res) => {
         res.send(err)
     }
 })
-
-
 
 module.exports = router
