@@ -14,6 +14,20 @@ router.get('/', async (req, res) => {
     }
 })
 
+// SHOW
+router.get('/:situationId', async (req, res) => {
+    try {
+        const user = await User.findById(req.params.userId)
+        const settings = await user.settings.id(req.params.settingId) 
+        const situation = await settings.situations.id(req.params.situationId)
+        res.json(situation)
+    } catch (err) {
+        res.send(err)
+    }
+})
+
+//
+
 
 
 module.exports = router
