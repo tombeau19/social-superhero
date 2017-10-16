@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const UserController = require('./routes/UserController')
-const SituationController = require('./routes/SettingController')
+const SituationController = require('./routes/SituationController')
 const SettingController = require('./routes/SettingController')
 const app = express();
 
