@@ -63,6 +63,11 @@ router.delete('/:situationId', async (req, res) => {
     try {
         const user = await User.findById(req.params.userId)
         const setting = await user.settings.id(req.params.settingId)
+        setting.situations.id(req.params.situationId).remove()
+        const saved = await user.save()
+        res.json(saved)
+    } catch (err) {
+        res.send(err)
     }
 })
 
