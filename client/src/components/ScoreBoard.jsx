@@ -27,7 +27,7 @@ class ScoreBoard extends Component {
                 <h3>Scoreboard</h3>
 
                 {this.state.users.map((user) => {
-                    return (<div>{user.superHeroName}</div>)
+                    return (<div>{user.superHeroName}: {user.score} points</div>)
                 })}
 
             </div>
