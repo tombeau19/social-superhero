@@ -34,7 +34,7 @@ router.post('/', async (req, res) => {
         const setting = await user.settings.id(req.params.settingId)
         setting.situations.push(newSituation)
         const saved = await user.save()
-        res.json(saved)
+        res.json(setting)
     } catch (err) {
         res.send(err)
     }
@@ -46,13 +46,13 @@ router.patch('/:situationId', async (req, res) => {
         const updatedSituation = req.body.situation
         const user = await User.findById(req.params.userId)
         const setting = await user.settings.id(req.params.settingId)
-        const situation = setting.situations.id(req.params.situationId)
+        const situation = await setting.situations.id(req.params.situationId)
         situation.title = updatedSituation.title
         situation.description = updatedSituation.description
         situation.actions = updatedSituation.actions
         situation.comment = updatedSituation.comment
         const saved = await user.save()
-        res.json(saved)
+        res.json(setting)
     } catch (err) {
         res.send(err)
     }
@@ -65,7 +65,7 @@ router.delete('/:situationId', async (req, res) => {
         const setting = await user.settings.id(req.params.settingId)
         setting.situations.id(req.params.situationId).remove()
         const saved = await user.save()
-        res.json(saved)
+        res.json(setting)
     } catch (err) {
         res.send(err)
     }

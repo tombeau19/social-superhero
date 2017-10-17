@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import SituationsList from './SituationsList'
-import { Link } from 'react-router-dom'
 
 class SituationPage extends Component {
 
@@ -48,13 +47,13 @@ class SituationPage extends Component {
             situation: situation
         })
         this.setState({ setting: res.data })
+        console.log(res.data)
     }
 
     render() {
         return (
             <div>
                 <h2>{this.state.setting.location}</h2>
-
                 <h3>What's the 'Sitch?</h3>
                 <button onClick={this.createNewSituation}>New 'Sitch</button>
                 <SituationsList
