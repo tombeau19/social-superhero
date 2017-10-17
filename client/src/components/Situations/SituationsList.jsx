@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react'
 import Situation from './Situation'
 
 const SituationsList = (props) => {
@@ -11,6 +11,7 @@ const SituationsList = (props) => {
                         _id={situation._id}
                         handleChange={props.handleChange}
                         updateSituation={props.updateSituation}
+                        deleteSituation={props.deleteSituation}
                         title={situation.title}
                         description={situation.description}
                         actions={situation.actions}

@@ -1,26 +1,31 @@
-import React, { Component } from 'react';
+import React from 'react'
 import Actions from './Actions'
 
 const Situation = (props) => {
 
-    
+    const deleteSituation = () => {
+        props.deleteSituation(props._id)
+    }
+
+    const handleChange = (event) => {
+        props.handleChange(event, props._id)
+    }
 
     const updateSituation = () => {
         props.updateSituation(props._id)
     }
 
-    const handleChange = (event) => {
-        props.handleChange(props._id)
-    }
-
     return (
         <div>
-            <h3>{props.title}</h3>
-            <p>{props.description}</p>
+            <h1><input onBlur={updateSituation} onChange={handleChange} name="title" value={props.title}/></h1>
+            <textarea onBlur={updateSituation} onChange={handleChange} name="description" value={props.description}></textarea>
             <ol>
                 {props.actions.map((actions) => {
                     return (
                         <Actions
+                            deleteSituation={props.deleteSituation}
+                            updateSituation={props.updateSituation}
+                            handleChange={props.handleChange}
                             actions={actions}
                             key={actions._id}
                             _id={actions._id}
@@ -28,8 +33,8 @@ const Situation = (props) => {
                         </Actions>
                     )
                 })}
-                <br/><br/>
             </ol>
+            <button onClick={deleteSituation}>Delete 'Sitch</button>
         </div>
     );
 
