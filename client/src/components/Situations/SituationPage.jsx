@@ -24,6 +24,13 @@ class SituationPage extends Component {
         console.log(res.data)
     }
 
+    deleteSituation = async (situationId) => {
+        const { userId, settingId } = this.props.match.params
+        const id = situationId
+        const res = await axios.delete(`/api/users/${userId}/settings/${settingId}/situations/${id}`)
+        this.setState({ user: res.data })
+    }
+
     createNewSituation = async () => {
         const { userId, settingId } = this.props.match.params
         const res = await axios.post(`/api/users/${userId}/settings/${settingId}/situations`)

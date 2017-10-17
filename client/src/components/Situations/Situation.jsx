@@ -3,6 +3,8 @@ import Actions from './Actions'
 
 const Situation = (props) => {
 
+    
+
     const updateSituation = () => {
         props.updateSituation(props._id)
     }
