@@ -49,7 +49,7 @@ router.patch('/:situationId', async (req, res) => {
         const situation = setting.situations.id(req.params.situationId)
         situation.title = updatedSituation.title
         situation.description = updatedSituation.description
-        situation.response = updatedSituation.response
+        situation.actions = updatedSituation.actions
         situation.comment = updatedSituation.comment
         const saved = await user.save()
         res.json(saved)

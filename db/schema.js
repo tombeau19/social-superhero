@@ -9,7 +9,7 @@ const situationSchema = mongoose.Schema({
         type: String,
         default: `'Sitch Description`,
     },
-    response: {
+    actions: {
         type: Array,
         default: `'Sitch Response`,
     },
