@@ -17,7 +17,7 @@ const Situation = (props) => {
 
     return (
         <div>
-            <h1><input onBlur={updateSituation} onChange={handleChange} name="title" value={props.title}/></h1>
+            <h1><input onBlur={updateSituation} onChange={handleChange} name="title" value={props.title} /></h1>
             <textarea onBlur={updateSituation} onChange={handleChange} name="description" value={props.description}></textarea>
             <ol>
                 {props.actions.map((actions) => {
@@ -29,11 +29,14 @@ const Situation = (props) => {
                             actions={actions}
                             key={actions._id}
                             _id={actions._id}
-                        >    
+                        >
                         </Actions>
                     )
                 })}
             </ol>
+            <div>
+                <input onBlur={updateSituation} onChange={handleChange} name="comment" value={props.comment} />
+            </div>
             <button onClick={deleteSituation}>Delete 'Sitch</button>
         </div>
     );

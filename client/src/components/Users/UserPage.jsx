@@ -29,10 +29,7 @@ class UserPage extends Component {
                 {this.state.user.settings.map((setting) => {
                     return (<div><Link key={setting._id} to={`/users/${this.state.user._id}/settings/${setting._id}`}>{setting.location}</Link></div>)
                 })}
-                <SituationPage 
-                    superHeroName={this.state.user.superHeroName}
-                    score={this.state.user.score}
-                />
+
             </div>
         )
     }

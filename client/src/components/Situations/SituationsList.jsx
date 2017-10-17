@@ -15,12 +15,13 @@ const SituationsList = (props) => {
                         title={situation.title}
                         description={situation.description}
                         actions={situation.actions}
+                        comment={situation.comment}
                     >
                     </Situation>
                 )
             })}
         </div>
-    );
+    )
 }
 
 export default SituationsList;

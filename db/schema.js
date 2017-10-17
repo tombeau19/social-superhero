@@ -13,7 +13,10 @@ const situationSchema = mongoose.Schema({
         type: Array,
         default: `'Sitch Response`,
     },
-    comment: String
+    comment: {
+        type: String,
+        default: `How'd it go?`
+    }
 })
 
 const settingSchema = mongoose.Schema({
