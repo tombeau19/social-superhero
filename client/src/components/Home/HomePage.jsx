@@ -7,7 +7,8 @@ class HomePage extends Component {
             <div>
                 <h1>home page</h1>
 
-                <SignUpForm />
+                <SignUpForm/>
+
             </div>
         );
     }

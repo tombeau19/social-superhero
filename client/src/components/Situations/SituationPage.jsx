@@ -5,6 +5,7 @@ import SituationsList from './SituationsList'
 class SituationPage extends Component {
 
     state = {
+        score: 0,
         setting: {
             location: '',
             situations: [{
