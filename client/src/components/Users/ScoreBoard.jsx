@@ -1,7 +1,26 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import styled from 'styled-components'
 
+const ScoreboardContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
+
+const BigTitle = styled.h1`
+    font-size: 50px;
+`
+
+const LeaderBoard = styled.div`
+    dispaly: flex;
+    align-content: flex-start;
+    width: 75%;
+    padding: 0 15%;
+    
+`
 
 class ScoreBoard extends Component {
 
@@ -24,14 +43,14 @@ class ScoreBoard extends Component {
 
     render() {
         return (
-            <div>
-                <h1>Superheros</h1>
-                <h3>Scoreboard</h3>
-                
-                {this.state.users.map((user) => {
-                return (<div><Link key={user._id} to={`/users/${user._id}`}>{user.superHeroName}</Link>: {user.score} points</div>)
-                })}
-            </div>
+            <ScoreboardContainer>
+                <BigTitle>Superhero Scoreboard</BigTitle>
+                <LeaderBoard>
+                    {this.state.users.map((user) => {
+                        return (<div><Link key={user._id} to={`/users/${user._id}`}>{user.superHeroName}</Link>: {user.score} points</div>)
+                    })}
+                </LeaderBoard>
+            </ScoreboardContainer>
         );
     }
 }

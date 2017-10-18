@@ -45,7 +45,9 @@ class Situation extends Component {
                             </Actions>
                         )
                     })}
+                    <div><h3>Add A Step:</h3>
                     <input onBlur={this.addAction} onChange={this.handleChange} name="action" />
+                    </div>
                 </ol>
 
                 <div>

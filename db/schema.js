@@ -11,7 +11,6 @@ const situationSchema = mongoose.Schema({
     },
     actions: {
         type: Array,
-        default: `'Sitch Response`,
     },
     comment: {
         type: String,

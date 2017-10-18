@@ -13,7 +13,7 @@ const TopBar = styled.div`
 const Header = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 1010px;
   height: 60px;
   align-items: center
