@@ -22,8 +22,19 @@ const FormBox = styled.div`
     border-radius: 5%
 `
 
-const InputContainer = styled.form`
- 
+const ButtonSignUp = styled.button`
+    border: none;
+    background: none;
+    font-size: 20px;
+    font-family: 'Concert One', cursive;
+    color: #286EB5;
+    &:hover {
+        text-shadow: 1px 1px 2px #286EB5;
+    }
+`
+
+const InputField = styled.input`
+    background-color: rgba(255, 255, 255, 0.95);
 `
 
 class SignUpForm extends Component {
@@ -61,17 +72,18 @@ class SignUpForm extends Component {
             <FormContainer>
             <FormBox>
                 <h2>Start Today</h2>
-                <InputContainer onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit}>
                     <div>
-                        <label htmlFor="name">Name</label>
-                        <input onChange={this.handleChange} name="name" type="text" value={this.state.newUser.name}/>
+                        <label htmlFor="name">Name</label><br/>
+                        <InputField onChange={this.handleChange} name="name" type="text" value={this.state.newUser.name}/>
                     </div>
                     <div>
-                        <label htmlFor="superHeroName">Superhero Name</label>
-                        <input onChange={this.handleChange} name="superHeroName" type="text" value={this.state.newUser.superHeroName}/>
+                        <label htmlFor="superHeroName">Superhero Name</label><br/>
+                        <InputField onChange={this.handleChange} name="superHeroName" type="text" value={this.state.newUser.superHeroName}/>
                     </div>
-                    <button>Sign Up</button>
-                </InputContainer>
+                    <br/>
+                    <ButtonSignUp>Sign Up</ButtonSignUp>
+                </form>
             </FormBox>
             </FormContainer>
         )
