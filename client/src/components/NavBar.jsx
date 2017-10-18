@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import SignUpFrom from './Home/SignUpForm'
 import styled from 'styled-components'
-import img from './images/Logomakr_8DILJg.png'
 
 const TopBar = styled.div`
   display: flex;
