@@ -9,7 +9,7 @@ const Actions = (props) => {
                 <li>{props.actions}</li>
             </div>
 
-    );
+    )
 
 }
 
