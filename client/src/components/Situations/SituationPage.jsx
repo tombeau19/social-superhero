@@ -7,7 +7,9 @@ class SituationPage extends Component {
     state = {
         setting: {
             location: '',
-            situations: []
+            situations: [{
+                actions: []
+            }]
         }
     }
 
@@ -30,7 +32,7 @@ class SituationPage extends Component {
         this.setState({ setting: res.data })
     }
 
-    handleChange = (event, situationId) => {
+    handleSituationChange = (event, situationId) => {
         const attribute = event.target.name
         const clonedSetting = { ...this.state.setting }
         const situation = clonedSetting.situations.find(i => i._id === situationId)
@@ -38,12 +40,19 @@ class SituationPage extends Component {
         this.setState({ setting: clonedSetting })
     }
 
+    addAction = (action, situationId) => {
+        const clonedSetting = {...this.state.setting}
+        const situation = clonedSetting.situations.find(i => i._id === situationId)
+        situation.actions.push(action)
+        this.setState({ setting: clonedSetting })
+        this.updateSituation(situationId)
+    }
+
     updateSituation = async (situationId) => {
         const { userId, settingId } = this.props.match.params
-        const id = situationId
         const clonedSetting = { ...this.state.setting }
         const situation = clonedSetting.situations.find(i => i._id === situationId)
-        const res = await axios.patch(`/api/users/${userId}/settings/${settingId}/situations/${id}`, {
+        const res = await axios.patch(`/api/users/${userId}/settings/${settingId}/situations/${situationId}`, {
             situation: situation
         })
         this.setState({ setting: res.data })
@@ -59,8 +68,9 @@ class SituationPage extends Component {
                 <SituationsList
                     situations={this.state.setting.situations}
                     deleteSituation={this.deleteSituation}
+                    addAction={this.addAction}
                     updateSituation={this.updateSituation}
-                    handleChange={this.handleChange}>
+                    handleSituationChange={this.handleSituationChange}>
                 </SituationsList>
             </div>
         )

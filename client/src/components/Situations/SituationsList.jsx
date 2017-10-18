@@ -9,7 +9,8 @@ const SituationsList = (props) => {
                     <Situation 
                         key={situation._id}
                         _id={situation._id}
-                        handleChange={props.handleChange}
+                        handleSituationChange={props.handleSituationChange}
+                        addAction={props.addAction}
                         updateSituation={props.updateSituation}
                         deleteSituation={props.deleteSituation}
                         title={situation.title}

@@ -1,46 +1,62 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Actions from './Actions'
 
-const Situation = (props) => {
+class Situation extends Component {
 
-    const deleteSituation = () => {
-        props.deleteSituation(props._id)
+    state = {
+        action: ''
     }
 
-    const handleChange = (event) => {
-        props.handleChange(event, props._id)
+    deleteSituation = () => {
+        this.props.deleteSituation(this.props._id)
     }
 
-    const updateSituation = () => {
-        props.updateSituation(props._id)
+    handleSituationChange = (event) => {
+        this.props.handleSituationChange(event, this.props._id)
     }
 
-    return (
-        <div>
-            <h1><input onBlur={updateSituation} onChange={handleChange} name="title" value={props.title} /></h1>
-            <textarea onBlur={updateSituation} onChange={handleChange} name="description" value={props.description}></textarea>
-            <ol>
-                {props.actions.map((actions) => {
-                    return (
-                        <Actions
-                            deleteSituation={props.deleteSituation}
-                            updateSituation={props.updateSituation}
-                            handleChange={props.handleChange}
-                            actions={actions}
-                            key={actions._id}
-                            _id={actions._id}
-                        >
-                        </Actions>
-                    )
-                })}
-            </ol>
+    handleChange = (event) => {
+        const newAction = event.target.value
+        this.setState({ action: newAction })
+    }
+
+    updateSituation = () => {
+        this.props.updateSituation(this.props._id)
+
+    }
+
+    addAction = () => {
+        this.props.addAction(this.state.action, this.props._id)
+    }
+
+    render() {
+        return (
             <div>
-                <input onBlur={updateSituation} onChange={handleChange} name="comment" value={props.comment} />
-            </div>
-            <button onClick={deleteSituation}>Delete 'Sitch</button>
-        </div>
-    );
+                <h1><input onBlur={this.updateSituation} onChange={this.handleSituationChange} name="title" value={this.props.title} /></h1>
+                <textarea onBlur={this.updateSituation} onChange={this.handleSituationChange} name="description" value={this.props.description}></textarea>
+                <ol>
+                    {this.props.actions.map((actions) => {
+                        return (
+                            <Actions
+                                actions={actions}
+                                key={actions._id}
+                                _id={actions._id}
+                            >
+                            </Actions>
+                        )
+                    })}
+                    <input onBlur={this.addAction} onChange={this.handleChange} name="action" />
+                </ol>
 
+                <div>
+                    <h4>Comments:</h4>
+                    <input onBlur={this.updateSituation} onChange={this.handleSituationChange} name="comment" value={this.props.comment} />
+                </div>
+                <button onClick={this.deleteSituation}>Delete 'Sitch</button>
+                <hr />
+            </div>
+        )
+    }
 }
 
 export default Situation;
