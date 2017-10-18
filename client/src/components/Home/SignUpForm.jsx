@@ -1,6 +1,30 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
+import styled from 'styled-components'
+
+const FormContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%
+`
+const FormBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 250px;
+    padding: 0px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5%
+`
+
+const InputContainer = styled.form`
+ 
+`
 
 class SignUpForm extends Component {
 
@@ -34,9 +58,10 @@ class SignUpForm extends Component {
             return <Redirect to={`/users/${this.state.newUserId}`} />
         }
         return (
-            <div>
-                <h3>Sign-Up</h3>
-                <form onSubmit={this.handleSubmit}>
+            <FormContainer>
+            <FormBox>
+                <h2>Start Today</h2>
+                <InputContainer onSubmit={this.handleSubmit}>
                     <div>
                         <label htmlFor="name">Name</label>
                         <input onChange={this.handleChange} name="name" type="text" value={this.state.newUser.name}/>
@@ -45,14 +70,10 @@ class SignUpForm extends Component {
                         <label htmlFor="superHeroName">Superhero Name</label>
                         <input onChange={this.handleChange} name="superHeroName" type="text" value={this.state.newUser.superHeroName}/>
                     </div>
-                    <div>
-                        <label htmlFor="password">Password</label>
-                        <input onChange={this.handleChange} name="password" type="text" value={this.state.newUser.password}/>
-                    </div>
                     <button>Sign Up</button>
-                </form>
-
-            </div>
+                </InputContainer>
+            </FormBox>
+            </FormContainer>
         )
     }
 }

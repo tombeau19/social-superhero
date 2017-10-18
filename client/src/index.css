@@ -2,9 +2,18 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Concert One', cursive;
+  color: #286EB5;
 }
 
-.scoreboardLink {
-  font-size: 50px;
+.mainLink {
+  font-size: 36px
+}
+
+.link {
   text-decoration: none;
+  color: #286EB5;
+}
+
+.link:hover {
+  text-shadow: 1px 1px 2px #286EB5;
 }

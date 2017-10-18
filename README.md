@@ -6,3 +6,6 @@
 
 
 #### Trello-Board -- https://trello.com/b/Txvv1252/social-superhero
+
+sources -
+http://www.powerpointhintergrund.com/ppt-image/what-the-avengers-teach-us-about-teamwork-nulman-notes-7224.html
