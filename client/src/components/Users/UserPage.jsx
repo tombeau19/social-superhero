@@ -4,6 +4,36 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 
+const UserContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
+
+const BigTitle = styled.h1`
+    font-size: 50px;
+`
+
+const UserBoard = styled.div`
+    dispaly: flex;
+    align-content: flex-start;
+    width: 40%;
+    padding: 0 15%;
+`
+
+const Earn = styled.div`
+    font-size: 36px;
+`
+
+const List = styled.div`
+    display: flex;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 2px 4px 0 rgba(0, 0, 0, 0.19);
+    justify-content: space-between;
+    padding: 5% 5%;
+`
+
+
 class UserPage extends Component {
 
     state = {
@@ -24,16 +54,23 @@ class UserPage extends Component {
 
     render() {
         return (
-            <div>
-                <h1>{this.state.user.superHeroName} - Points: {this.state.user.score}</h1>
-                <h3><div>Earn Points At...</div></h3>
-                {this.state.user.settings.map((setting) => {
-                    return (<div><Link key={setting._id} to={`/users/${this.state.user._id}/settings/${setting._id}`}>{setting.location}</Link></div>)
-                })}
-  
-            </div>
+            <UserContainer>
+                <BigTitle>{this.state.user.superHeroName} - Points: {this.state.user.score}</BigTitle>
+                <Earn>Earn Points At...</Earn>
+                <UserBoard>
+                    {this.state.user.settings.map((setting) => {
+                        return (<List><Link className='link mainLink' key={setting._id} to={`/users/${this.state.user._id}/settings/${setting._id}`}>{setting.location}</Link></List>)
+                    })}
+                </UserBoard>
+            </UserContainer>
         )
     }
 }
 
 export default UserPage;
+
+
+
+
+
+

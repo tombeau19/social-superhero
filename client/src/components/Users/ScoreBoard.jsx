@@ -17,10 +17,21 @@ const BigTitle = styled.h1`
 const LeaderBoard = styled.div`
     dispaly: flex;
     align-content: flex-start;
-    width: 75%;
+    width: 40%;
     padding: 0 15%;
-    
 `
+
+const Score = styled.span`
+    font-size: 36px;
+`
+
+const List = styled.div`
+    display: flex;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 2px 4px 0 rgba(0, 0, 0, 0.19);
+    justify-content: space-between;
+    padding: 5% 5%;
+`
+
 
 class ScoreBoard extends Component {
 
@@ -46,13 +57,15 @@ class ScoreBoard extends Component {
             <ScoreboardContainer>
                 <BigTitle>Superhero Scoreboard</BigTitle>
                 <LeaderBoard>
+
                     {this.state.users.map((user) => {
-                        return (<div><Link key={user._id} to={`/users/${user._id}`}>{user.superHeroName}</Link>: {user.score} points</div>)
+                        return (<List><Link className='link mainLink' key={user._id} to={`/users/${user._id}`}>{user.superHeroName}</Link><Score> {user.score} points</Score></List>)
                     })}
+      
                 </LeaderBoard>
             </ScoreboardContainer>
-        );
+        )
     }
 }
 
-export default ScoreBoard;
+export default ScoreBoard

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 
 const Content = styled.div`
-    background-image: url('../../superhero-background-7224.jpeg');
+    background-image: url('../../images/superhero-background-7224.jpeg');
     width: 100%;
     height: 100vh;
     background-size: cover;
