@@ -1,6 +1,23 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import SituationsList from './SituationsList'
+import styled from 'styled-components'
+
+
+const BigTitle = styled.h1`
+    font-size: 50px;
+`
+
+const ButtonSignUp = styled.button`
+    border: none;
+    background: none;
+    font-size: 35px;
+    font-family: 'Concert One', cursive;
+    color: #286EB5;
+    &:hover {
+        text-shadow: 1px 1px 2px #286EB5;
+    }
+`
 
 class SituationPage extends Component {
 
@@ -62,9 +79,10 @@ class SituationPage extends Component {
     render() {
         return (
             <div>
-                <h2>{this.state.setting.location}</h2>
-                <h3>What's the 'Sitch?</h3>
-                <button onClick={this.createNewSituation}>New 'Sitch</button>
+                <BigTitle>{this.state.setting.location} - What's the 'Sitch?</BigTitle>
+                
+                <ButtonSignUp onClick={this.createNewSituation}>New 'Sitch</ButtonSignUp>
+                <hr/>
                 <SituationsList
                     situations={this.state.setting.situations}
                     deleteSituation={this.deleteSituation}
