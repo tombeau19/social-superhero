@@ -11,7 +11,7 @@ sources:
 background image - 
 http://www.powerpointhintergrund.com/ppt-image/what-the-avengers-teach-us-about-teamwork-nulman-notes-7224.html
 
-content:
+content and co-creator:
 Georgia Beauregard (MSW, BCBA)
 
 deployed-app: https://socialsuperhero.herokuapp.com/
